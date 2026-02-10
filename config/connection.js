@@ -5,9 +5,9 @@ const state = {
 
 module.exports.connect = function (done) {
   const dbname = "polyhub_db";
-  
+
   // MongoDB Atlas connection URL
-  const url = `mongodb+srv://polyhub_admin:polyhub_123@cluster0.6azsrel.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+  const url = process.env.MONGODB_URI || `mongodb+srv://polyhub_admin:polyhub_123@cluster0.6azsrel.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
   mongoClient.connect(url, (err, client) => {
     if (err) {
