@@ -25,15 +25,13 @@ module.exports = {
       //filter the object with foreach and take only dated 3 days ago
     });
   },
-  fetchAllNotifications: () => {
-    return new Promise(async (resolve, reject) => {
-      let notificationList = await db
-        .get()
-        .collection(collections.NOTIFICATION_COLLECTION)
-        .find()
-        .toArray();
-      resolve(notificationList);
-    });
+  fetchAllNotifications: async () => {
+    const notificationList = await db
+      .get()
+      .collection(collections.NOTIFICATION_COLLECTION)
+      .find()
+      .toArray();
+    return notificationList;
   },
   fetchOneNotification: (notificationId) => {
     return new Promise(async (resolve, reject) => {
@@ -52,7 +50,7 @@ module.exports = {
         .get()
         .collection(collections.NOTIFICATION_COLLECTION)
         .find({ _id: objectId(n_Id) });
-        console.log("from notifi-helper",n_Obj);
+      console.log("from notifi-helper", n_Obj);
       if (notificationExist) {
         db.get()
           .collection(collections.NOTIFICATION_COLLECTION)
