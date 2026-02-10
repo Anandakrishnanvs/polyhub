@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/stylesheets/add-new-form.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Add New Staff</h1>
+  </div>
+  <div class="form-container" style="height:60vh">
+    <form
+      action="/admin/add-new-staff"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="staff_name">Full Name</label>
+        <input
+          type="text"
+          name="staff_name"
+          id="staff_name"
+          required
+          placeholder="Enter the Full name of staff"
+        />
+      </div>
+      <div class="input-group">
+        <label for="position">position</label>
+        <input
+          type="text"
+          name="position"
+          id="position"
+          required
+          placeholder="Enter the position"
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          placeholder="Enter the email id"
+        />
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone No</label>
+        <input
+          type="number"
+          name="phone"
+          id="phone"
+          required
+          placeholder="Enter the Full name of staff"
+        />
+      </div>
+      <div class="input-group">
+        <label for="department_name">Department Name</label>
+        <select name="department_name" id="department_name">
+          <option value="general">General</option>
+          <option value="ce">Civil Engineering</option>
+          <option value="ct">Computer Engineering</option>
+          <option value="eee">Electrical and Electronics Engineering</option>
+          <option value="ec">Electronics and Communication</option>
+          <option value="me">Mechanical Engineering</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="newForm">Image</label>
+        <input
+          type="file"
+          accept="image/JPG"
+          name="image"
+          id="image"
+          required
+        />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>

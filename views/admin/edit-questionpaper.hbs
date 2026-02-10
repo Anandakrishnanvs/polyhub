@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="/stylesheets/add-new-questionpaper.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Edit Question Paper</h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/edit-questionpaper"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          required
+          value="{{questionpaperObj.subject}}"
+          autofocus
+        />
+      </div>
+      <div class="input-group">
+        <label for="department">Department</label>
+        <input
+          type="text"
+          id="departmentId"
+          name="department"
+          value="{{questionpaperObj.department}}"
+          readonly
+          style="width: min-content;padding-left:10px;"
+        />
+        <select
+          id="department"
+          onchange="setValueAt('department','departmentId')"
+        >
+          <option value="">update department</option>
+          <option value="ct">Computer Engineering</option>
+          <option value="ce">Civil Engineering</option>
+          <option value="eee">Electrical and Electronics</option>
+          <option value="ec">Electronics and Communication</option>
+          <option value="me">Mechanical Engineering</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="semester">Semester</label>
+        <input
+          type="text"
+          name="semester"
+          id="semesterId"
+          value="{{questionpaperObj.semester}}"
+          readonly
+          style="width: min-content;padding-left:10px;"
+        />
+        <select id="semester" onchange="setValueAt('semester','semesterId')">
+          <option value="">update semester</option>
+          <option value="s1">Semester 1</option>
+          <option value="s2">Semester 2</option>
+          <option value="s3">Semester 3</option>
+          <option value="s4">Semester 4</option>
+          <option value="s5">Semester 5</option>
+          <option value="s6">Semester 6</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="year_month">Year and Month</label>
+        <input
+          type="text"
+          name="year_month"
+          id="year_month_id"
+          value="{{questionpaperObj.year_month}}"
+          readonly
+          required
+          style="width: min-content;padding-left:10px;"
+        />
+        <input
+          type="month"
+          id="year_month"
+          onchange="setValueAt('year_month','year_month_id')"
+        />
+        <input type="hidden" name="_id" value="{{questionpaperObj._id}}" />
+      </div>
+      <div class="input-group">
+        <label for="qPaper">Document</label>
+        <iframe
+          id="questionFrame"
+          src="/questions/{{questionpaperObj._id}}.pdf"
+          width="180"
+          title="The question paper in pdf format"
+          allowfullscreen="true"
+        ></iframe>
+        <input
+          type="file"
+          accept=".pdf"
+          name="qustionP"
+          id="qPaper"
+          onchange="callBack()"
+        />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+  function setValueAt(fromId,toId) { 
+    let val = document.getElementById(fromId).value;
+    if(val !== ""){
+      document.getElementById(toId).value = val;
+    } 
+  } 
+  function callBack() {
+    document.getElementById('questionFrame').hidden = "true"; // iframe hidden
+    alert(" document Updated"); 
+  }
+</script>

@@ -1,0 +1,52 @@
+<div class="staff-details">
+  <div class="title">
+    <h2>Staffs</h2>
+    <a href="#" class="btn">View All</a>
+  </div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Position</th>
+    </tr>
+    {{#each counts.staffList}}
+      <tr>
+        <td>{{staff_name}}</td>
+        <td>{{department_name}}</td>
+        <td>{{position}} </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+<div class="departments">
+  <div class="title">
+    <h2>Departments</h2>
+    <a href="#" class="btn">View All</a>
+  </div>
+  <table>
+    <tr>
+      <th>Dept ID</th>
+      <th>Name</th>
+    </tr>
+    <tr>
+      <td>CE</td>
+      <td>Civil Engineering</td>
+    </tr>
+    <tr>
+      <td>CT</td>
+      <td>Computer Engineering</td>
+    </tr>
+    <tr>
+      <td>EC</td>
+      <td>Electronics and Communication</td>
+    </tr>
+    <tr>
+      <td>EEE</td>
+      <td>Electrical and Electronics Engineering</td>
+    </tr>
+    <tr>
+      <td>ME</td>
+      <td>Mechanical Engineering</td>
+    </tr>
+  </table>
+</div>

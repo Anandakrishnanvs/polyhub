@@ -1,0 +1,51 @@
+{{> navbar}}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header" style="height: 40vh;">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Photo Gallery</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Gallery</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      {{#if photos}}
+      {{#each photos}}
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="team-item rounded overflow-hidden h-100">
+          <div class="position-relative h-100">
+            <img class="img-fluid w-100 h-100" src="/img/gallery/{{_id}}.jpg" alt="{{this.title}}"
+              style="object-fit: cover; min-height: 250px;">
+            <div class="team-overlay">
+              <div class="d-flex flex-column align-items-center justify-content-center h-100 p-3 text-center"
+                style="background: rgba(0,0,0,0.6);">
+                <h4 class="text-white mb-2">{{this.title}}</h4>
+                <small class="text-white-50">{{dateAdded}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="col-12 text-center">
+        <div class="alert alert-info" role="alert">
+          No photos available in the gallery yet.
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+{{> footer}}

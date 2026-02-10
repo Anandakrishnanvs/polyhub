@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css"
+    />
+
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"
+    ></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <!--jquery datatable-->
+  </head>
+  <body>
+    <div class="container">
+      <table id="formsTable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>mandatory</td>
+            <td>10-10-21</td>
+            <td>
+              <a href="admin/edit-form/id" class="edit-btn">Edit</a>&nbsp;<a
+                href="/admin/delete-form/id"
+                class="delete-btn"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>mandatory</td>
+            <td>10-10-21</td>
+            <td>
+              <a href="admin/edit-form/id" class="edit-btn">Edit</a>&nbsp;<a
+                href="/admin/delete-form/id"
+                class="delete-btn"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>mandatory</td>
+            <td>10-10-21</td>
+            <td>
+              <a href="admin/edit-form/id" class="edit-btn">Edit</a>&nbsp;<a
+                href="/admin/delete-form/id"
+                class="delete-btn"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>mandatory</td>
+            <td>10-10-21</td>
+            <td>
+              <a href="admin/edit-form/id" class="edit-btn">Edit</a>&nbsp;<a
+                href="/admin/delete-form/id"
+                class="delete-btn"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      $(function () {
+        $("#formsTable").DataTable();
+      });
+    </script>
+  </body>
+</html>

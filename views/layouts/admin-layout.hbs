@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <!-- font awsome library from cdnjs-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+    <!--jquery datatable-->
+
+  </head>
+  <body>
+    <!--sidebar-->
+       {{#if staffPartials }}
+               {{> SideBarStaff}}
+            {{else}}
+                  {{>SideBarAdmin}}
+        {{/if}}
+  
+    <!--top navbar-->
+    <div class="container">
+      <div class="header">
+        <div class="nav">
+          <div class="search">
+            <!--<input type="text" placeholder="Search..." />
+            <button type="submit"><i
+                class="fas fa-search"
+                style="font-size: 30px;"
+              ></i></button>-->
+          </div>
+          <div class="user">
+            <!--<a href="#" class="btn">Logout</a>-->
+            <a href="/admin/logout">
+            <div class="img-case">
+              <i class="far fa-user" style="font-size: 30px;"></i>
+              <p>&nbsp;Logout</p>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+          {{#if partials }}
+              {{> dashboard}}
+              {{else}}
+               {{> StaffDashBoard}}
+          {{/if}}
+        <div class="content-2">
+          {{{body}}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/stylesheets/add-new-questionpaper.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Question Papers</h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/add-new-questionpaper"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="department">Department</label>
+        <select name="department" id="department" required>
+          <option value="" selected disabled hidden>SELECT ONE</option>
+          <option value="ct">Computer Engineering</option>
+          <option value="ce">Civil Engineering</option>
+          <option value="eee">Electrical and Electronics</option>
+          <option value="ec">Electronics and Communication</option>
+          <option value="me">Mechanical Engineering</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          required
+          placeholder="Enter the subject title"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <label for="semester">Semester</label>
+        <select name="semester" id="semester" required>
+          <option value=""></option>
+          <option value="s1">Semester 1</option>
+          <option value="s2">Semester 2</option>
+          <option value="s3">Semester 3</option>
+          <option value="s4">Semester 4</option>
+          <option value="s5">Semester 5</option>
+          <option value="s6">Semester 6</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="year_month">Year and Month</label>
+        <input type="month" name="year_month" id="year_month" required />
+      </div>
+      <div class="input-group">
+        <label for="qPaper">Document</label>
+        <input type="file" accept=".pdf" name="qustionP" id="qPaper" required />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/add-new-form.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Edit Notification</h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/edit-notification"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          required
+          value="{{notificationObj.title}}"
+        />
+      </div>
+      <input type="hidden" name="_id" value="{{notificationObj._id}}" />
+      <div class="input-group">
+        <label for="title">Content</label>
+        <input
+          type="text"
+          name="content"
+          id="content"
+          required
+          value="{{notificationObj.content}}"
+        />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>

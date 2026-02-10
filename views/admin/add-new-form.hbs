@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/add-new-form.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>New forms</h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/add-new-form"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          required
+          placeholder="Enter the title of the form"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="newForm">Document</label>
+        <input
+          type="file"
+          accept=".pdf,.doc,.docx"
+          name="newForm"
+          id="newForm"
+          required
+        />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>

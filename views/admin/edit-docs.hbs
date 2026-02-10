@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/stylesheets/add-new-form.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Edit Form</h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/edit-docs-page"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="title">Title</label>
+        
+      </div>
+
+      <div class="input-group">
+        <label for="newForm">Document</label>
+
+        <input
+          type="file"
+          accept=".pdf,.doc,.docx"
+          name="newForm"
+          id="newForm"
+          onchange="changeForm()"
+        />
+      </div>
+        {{!-- <iframe
+        id="frame"
+          src="/docs/{{formObj._id}}.pdf"
+          sandbox="allow-pointer-lock"
+          width="200"
+          title="The form document in pdf format"
+          allowfullscreen="true"
+        ></iframe> --}}
+      <input type="text" name="department" value="{{formObj.department}}" />
+      <input type="text" name="subject" value="{{formObj.subject}}" />
+      <input type="text" name="semester" value="{{formObj.semester}}" />
+    <input
+  type="date"
+  name="year_month"
+  defaultValue={formObj.year_month} // Assuming formObj.year_month is a string in the format "YYYY-MM-DD"
+/>
+
+
+
+
+
+      <input type="hidden" name="_id" value="{{formObj._id}}" />
+      <div class="btn-group" style="margin-top: 20px;">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <a class="btn-reset" href="/admin/forms">Go back</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  function changeForm() {
+     document.getElementById('frame').hidden = "true";
+     window.alert(" Form Updated"); 
+  }
+</script>

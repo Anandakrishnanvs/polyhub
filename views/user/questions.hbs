@@ -1,0 +1,54 @@
+{{> navbar}}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header" style="height: 40vh;">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Question Papers</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Downloads</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      {{#if questions}}
+      {{#each questions}}
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="modern-card p-4 h-100 text-center">
+          <div class="mb-3">
+            <i class="fas fa-file-alt fa-3x text-primary"></i>
+          </div>
+          <h5 class="mb-2">{{this.subject}}</h5>
+          <p class="text-muted small mb-3">{{this.semester}} | {{this.department}}</p>
+          <p class="text-muted small mb-3">{{this.year_month}}</p>
+
+          {{#if ../user}}
+          <a href="/questions/{{this._id}}.pdf" download class="btn btn-sm btn-outline-primary w-100">
+            <i class="fas fa-download me-2"></i>Download
+          </a>
+          {{else}}
+          <p class="text-danger small"><i class="fas fa-lock me-1"></i>Login to download</p>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="col-12 text-center">
+        <div class="alert alert-info" role="alert">
+          No question papers found.
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+{{> footer}}

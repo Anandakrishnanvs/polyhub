@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/stylesheets/login.css" />
+<div class="question-content">
+  <div class="form-container">
+    <h1>Login as Admin</h1>
+    <form action="/admin/login" method="post" enctype="multipart/form-data">
+      <div class="input-group">
+        <label for="title">Username</label>
+        <input type="text" name="username" id="username" required />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+
+        <input type="password" name="password" id="password" />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Login" />
+      </div>
+    </form>
+    <a href="/admin/departmentLogin">Login as Department</a>
+  </div>
+</div>

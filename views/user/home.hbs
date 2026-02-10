@@ -1,0 +1,327 @@
+{{> navbar}}
+{{#if errorMessage}}
+<div class="alert alert-danger alert-dismissible fade show m-0 text-center rounded-0" role="alert">
+    <strong>Error:</strong> {{errorMessage}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="hero-header">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-3 text-white animated slideInDown mb-4">Education is the Passport to the Future</h1>
+                <p class="fs-5 text-white mb-5 pb-2">Empowering the next generation of technicians and engineers with
+                    quality education and practical skills.</p>
+
+                <div class="search-container animated slideInUp">
+                    <form action="/searchMaterial" method="post" class="w-100 d-flex">
+                        <input type="text" name="subject" class="search-input"
+                            placeholder="Search for study materials, question papers...">
+                        <button type="submit" class="search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Bar -->
+<div class="notification-bar">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <span class="badge bg-secondary me-3">LATEST NEWS</span>
+            <div class="news-ticker">
+                {{#each notificationList}}
+                <span class="me-5"><i class="fas fa-bell me-2"></i><strong>{{title}}</strong>: {{content}}</span>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Departments Section -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h5>Our Departments</h5>
+            <h1>Explore Courses</h1>
+        </div>
+
+        <div class="row g-4">
+            <!-- Computer Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a href="/Computer">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid"
+                                src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg"
+                                alt="Computer Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Computer Engineering</h4>
+                                <small class="text-muted">Software & Hardware</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Civil Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="/civil">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="https://th.bing.com/th/id/OIP.l4rs6rD4UUVrOkhsWLiEzQHaEK"
+                                alt="Civil Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Civil Engineering</h4>
+                                <small class="text-muted">Construction & Design</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Mechanical Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a href="/mech">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid"
+                                src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg"
+                                alt="Mechanical Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Mechanical Engineering</h4>
+                                <small class="text-muted">Machines & Mechanics</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Electronics Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a href="/ec">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid"
+                                src="https://images.pexels.com/photos/159220/printed-circuit-board-print-plate-via-macro-159220.jpeg"
+                                alt="Electronics Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Electronics Engineering</h4>
+                                <small class="text-muted">Circuits & Systems</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Electrical Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="/eee">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid"
+                                src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg"
+                                alt="Electrical Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Electrical Engineering</h4>
+                                <small class="text-muted">Power & Energy</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Chemical Engineering -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a href="/genaral">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="https://th.bing.com/th/id/OIP.LFwH5fbdaRBxs100pWskDAHaE8"
+                                alt="Chemical Engineering">
+                        </div>
+                        <div class="team-text text-center">
+                            <div class="bg-light p-4">
+                                <h4 class="mb-0">Chemical Engineering</h4>
+                                <small class="text-muted">Chemistry & Process</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Links Section -->
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="section-title">
+            <h5>Resources</h5>
+            <h1>Quick Links</h1>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a href="https://moodle.com/solutions/lms/" target="_blank">
+                    <div class="modern-card">
+                        <img src="https://i.ytimg.com/vi/3ORsUGVNxGs/maxresdefault.jpg" alt="Moodle">
+                        <h3>LMS Moodle</h3>
+                        <p class="text-muted mb-0">Learning Management System</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="https://swayam.gov.in/" target="_blank">
+                    <div class="modern-card">
+                        <img src="https://assets.thehansindia.com/h-upload/2021/01/20/1025790-nptel.webp" alt="NPTEL">
+                        <h3>Swayam NPTEL</h3>
+                        <p class="text-muted mb-0">Online Courses</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a href="https://beta.sbte.kerala.gov.in/login" target="_blank">
+                    <div class="modern-card">
+                        <img src="/img/sbte.jpg" alt="SBTE">
+                        <h3>SBTE Kerala</h3>
+                        <p class="text-muted mb-0">Technical Education Board</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a href="https://knowledgemission.kerala.gov.in/" target="_blank">
+                    <div class="modern-card">
+                        <img src="/img/DWMS.png" alt="DWMS">
+                        <h3>DWMS Connect</h3>
+                        <p class="text-muted mb-0">Knowledge Mission</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Study Materials Section -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h5>Downloads</h5>
+            <h1>Study Materials</h1>
+        </div>
+
+        <div class="row g-4">
+            {{#if docs}}
+            {{#each docs}}
+            <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="modern-card p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                    </div>
+                    <h5 class="mb-2">{{this.subject}}</h5>
+                    <p class="text-muted small mb-3">{{this.department}} - {{this.semester}}</p>
+
+                    {{#if ../user}}
+                    <a href="/docs/{{_id}}.pdf" download="{{subject}} questionpaper{{year_month}}"
+                        class="btn btn-sm btn-primary w-100">
+                        <i class="fas fa-download me-2"></i>Download
+                    </a>
+                    {{else}}
+                    <button class="btn btn-sm btn-secondary w-100" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <i class="fas fa-lock me-2"></i>Login to DL
+                    </button>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="col-12 text-center">
+                <p class="text-muted">No study materials available at the moment.</p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form action="/Login" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="/admin/departmentLogin" class="text-muted small">Login as Department</a>
+                    <span class="mx-2 text-muted">|</span>
+                    <a href="/admin/login" class="text-muted small">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form action="/register" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="text" name="mobile" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

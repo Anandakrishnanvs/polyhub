@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/stylesheets/view-all-forms.css" />
+
+<div class="main-container">
+  <div class="title">
+    <h1>Total User</h1>
+    {{!-- <a href="/admin/add-new-staff" class="btn">Add New Staff</a> --}}
+  </div>
+  <div class="sub-contents">
+    <table id="formsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          {{!-- <th>Action</th> --}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each userList}}
+          <tr>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td>{{mobile}}</td>
+          
+ 
+        {{!-- <td><a
+                href="/admin/remove-user/{{_id}}"
+                class="delete-btn"
+              >Block</a></td> --}}
+          </tr>
+  
+   
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  $( function () { $('#formsTable').DataTable(); } );
+</script>

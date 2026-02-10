@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/stylesheets/add-new-form.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Edit Staff Details</h1>
+  </div>
+  <div class="form-container" >
+    <form
+      action="/admin/update-staff"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="staff_name">Full Name</label>
+        <input
+          type="text"
+          name="staff_name"
+          id="staff_name"
+          required
+          value="{{staffDetails.staff_name}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="position">position</label>
+        <input
+          type="text"
+          name="position"
+          id="position"
+          required
+          value="{{staffDetails.position}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          value="{{staffDetails.email}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone No</label>
+        <input
+          type="number"
+          name="phone"
+          id="phone"
+          required
+          value="{{staffDetails.phone}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="department">Department</label>
+        <input
+          type="text"
+          id="departmentId"
+          name="department_name"
+          value="{{staffDetails.department_name}}"
+          readonly
+          style="width: min-content;padding-left:10px;"
+        />
+        <select
+          id="department"
+          onchange="setValueAt('department','departmentId')"
+        >
+          <option value="">update department</option>
+          <option value="ct">Computer Engineering</option>
+          <option value="ce">Civil Engineering</option>
+          <option value="eee">Electrical and Electronics</option>
+          <option value="ec">Electronics and Communication</option>
+          <option value="me">Mechanical Engineering</option>
+        </select>
+      </div>
+      <input type="hidden" name="_id" value="{{staffDetails._id}}" />
+      <div class="input-group">
+        <label for="newForm">Image</label>
+        <img src="/img/staff/{{staffDetails._id}}.jpg" id="img-container" width="100" height="100" alt="">
+        <input type="file" accept="image/JPG" name="image" id="image" onchange="callBack()" />
+      </div>
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+  function setValueAt(fromId,toId) { 
+    let val = document.getElementById(fromId).value;
+    if(val !== ""){
+      document.getElementById(toId).value = val;
+    } 
+  } 
+  function callBack() {
+    document.getElementById('img-container').hidden = "true"; // iframe hidden
+    alert(" Image Updated"); 
+  }
+</script>

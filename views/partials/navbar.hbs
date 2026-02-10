@@ -1,0 +1,46 @@
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a href="/" class="navbar-brand">
+            <h1 class="m-0 text-primary">POLYHUB</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Departments</a>
+                    <div class="dropdown-menu m-0 border-0 shadow-sm rounded-3">
+                        <a href="/Computer" class="dropdown-item">Computer Engineering</a>
+                        <a href="/ec" class="dropdown-item">Electronics & Comm.</a>
+                        <a href="/civil" class="dropdown-item">Civil Engineering</a>
+                        <a href="/mech" class="dropdown-item">Mechanical Engineering</a>
+                        <a href="/eee" class="dropdown-item">Electrical & Electronics</a>
+                        <a href="/genaral" class="dropdown-item">Chemical Engineering</a>
+                    </div>
+                </div>
+
+                {{#if user}}
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle text-primary fw-bold" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-1"></i> {{user.username}}
+                    </a>
+                    <div class="dropdown-menu m-0 border-0 shadow-sm rounded-3">
+                        <a href="/logout" class="dropdown-item text-danger">Logout</a>
+                    </div>
+                </div>
+                {{else}}
+                <div class="d-flex align-items-center ms-lg-3">
+                    <button type="button" class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Login</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">Register</button>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->

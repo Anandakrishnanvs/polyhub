@@ -1,0 +1,58 @@
+.main-container {
+  margin: 5vh auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.main-container .title h1 {
+  color: #2aa87a;
+}
+.main-container .sub-contents {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #caeee1;
+  min-height: 110vh;
+  min-width: 60vw;
+}
+.main-container .sub-contents table {
+  width: 50vw;
+  max-height: 90vh;
+  padding-top: 10px;
+}
+
+.main-container .sub-contents table tr td {
+  height: 8vh;
+}
+
+.main-container .sub-contents table tr:nth-child(odd) td {
+  background: rgb(246, 246, 246);
+}
+.main-container .sub-contents table tr:nth-child(even) td {
+  background: rgb(180, 231, 187);
+}
+.edit-btn {
+  background: green;
+  color: #fff;
+  padding: 5px 15px;
+  margin-right: 1em;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.5s;
+}
+.edit-btn:hover {
+  background: #fff;
+  color: green;
+}
+.delete-btn {
+  background: red;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.5s;
+}
+.delete-btn:hover {
+  color: red;
+  background: #fff;
+}
