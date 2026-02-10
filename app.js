@@ -41,9 +41,20 @@ app.use(
   })
 );
 
-db.connect((err) => {
-  if (err) console.log(err);
-  else console.log("DB Connected");
+// Database connection middleware for Serverless
+app.use(async (req, res, next) => {
+  if (!db.get()) {
+    try {
+      await db.connectAsync();
+      next();
+    } catch (err) {
+      console.error("Database connection failed:", err);
+      // Pass error to error handler
+      next(createError(503));
+    }
+  } else {
+    next();
+  }
 });
 
 app.use("/", indexRouter);
