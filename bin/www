@@ -8,6 +8,20 @@ var app = require('../app');
 var debug = require('debug')('nss-ptc-website:server');
 var http = require('http');
 
+// Prevent MongoDB topology errors and other background async errors from crashing the server
+process.on('unhandledRejection', (reason) => {
+  console.warn('⚠️  Unhandled promise rejection (server kept alive):', reason && reason.message || reason);
+});
+process.on('uncaughtException', (err) => {
+  // Only crash on truly fatal errors, not MongoDB monitoring errors
+  if (err.name === 'MongoServerSelectionError' || err.name === 'MongoNetworkError' || (err.message && err.message.includes('ENOTFOUND'))) {
+    console.warn('⚠️  MongoDB connection error (server kept alive):', err.message);
+  } else {
+    console.error('💥 Fatal uncaught exception:', err);
+    process.exit(1);
+  }
+});
+
 /**
  * Get port from environment and store in Express.
  */

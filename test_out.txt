@@ -1,0 +1,21 @@
+﻿[dotenv@17.2.3] injecting env (7) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+Fetching resource list from Cloudinary...
+
+Found authenticated resources:
+ - study_materials/699898a707fded6523e4cca7.pdf | type: authenticated | format: undefined
+
+Testing download for public_id: study_materials/699898a707fded6523e4cca7.pdf
+
+--- Testing UPLOAD type URL ---
+URL: https://res.cloudinary.com/dbx6e8y7c/raw/upload/s--kLLL0elW--/v1/study_materials/699898a707fded6523e...
+Status: 404
+Content-Type: image/gif
+Content-Length: 0
+Location (redirect): none
+
+--- Testing AUTHENTICATED type URL ---
+URL: https://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--kLLL0elW--/v1/study_materials/699898a707fd...
+Status: 404
+Content-Type: image/gif
+Content-Length: 0
+Location (redirect): none

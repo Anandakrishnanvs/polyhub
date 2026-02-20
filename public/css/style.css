@@ -1,31 +1,44 @@
 /********** Template CSS **********/
 :root {
-  --primary: #4F46E5; /* Indigo 600 */
-  --primary-light: #818CF8; /* Indigo 400 */
-  --primary-dark: #3730A3; /* Indigo 800 */
-  --secondary: #10B981; /* Emerald 500 */
-  --accent: #F59E0B; /* Amber 500 */
-  --dark: #1F2937; /* Gray 800 */
-  --light: #F9FAFB; /* Gray 50 */
-  --gray: #6B7280; /* Gray 500 */
-  --glass: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --primary: #4F46E5;
+    /* Indigo 600 */
+    --primary-light: #818CF8;
+    /* Indigo 400 */
+    --primary-dark: #3730A3;
+    /* Indigo 800 */
+    --secondary: #10B981;
+    /* Emerald 500 */
+    --accent: #F59E0B;
+    /* Amber 500 */
+    --dark: #1F2937;
+    /* Gray 800 */
+    --light: #F9FAFB;
+    /* Gray 50 */
+    --gray: #6B7280;
+    /* Gray 500 */
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 body {
     font-family: 'Inter', sans-serif;
     color: var(--dark);
-    background-color: #F3F4F6;
+    background-color: #021d53;
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    color: var(--dark);
+    color: var(--primary-dark);
 }
 
 a {
@@ -134,7 +147,8 @@ a:hover {
     bottom: initial;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent; /* Removed dark background */
+    background: transparent;
+    /* Removed dark background */
 }
 
 /* Search Box */
@@ -142,7 +156,7 @@ a:hover {
     background: white;
     padding: 8px;
     border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     display: flex;
     max-width: 600px;
     margin: 20px auto;
@@ -207,7 +221,7 @@ a:hover {
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .team-item:hover {
@@ -240,7 +254,7 @@ a:hover {
     padding: 25px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
@@ -283,6 +297,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.6);
     display: block;
     margin-bottom: 10px;
+    transition: all 0.3s ease;
 }
 
 .footer a:hover {
@@ -290,15 +305,55 @@ a:hover {
     padding-left: 5px;
 }
 
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links .btn-link {
+    text-align: left;
+    padding: 5px 0;
+    padding-left: 0 !important;
+    width: auto;
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-links .btn-link:hover {
+    color: var(--primary-light);
+    padding-left: 5px !important;
+    background: none;
+}
+
 /* Utilities */
-.text-primary { color: var(--primary) !important; }
-.bg-primary { background-color: var(--primary) !important; }
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
 
 /* Custom Animations */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .float-animation {
@@ -321,8 +376,13 @@ a:hover {
 }
 
 @keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* Login/Register Forms */

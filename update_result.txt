@@ -1,0 +1,16 @@
+{
+  "asset_id": "1c84ac010a95ca60c7e58a0401e72a77",
+  "public_id": "study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "version": 1770750595,
+  "resource_type": "raw",
+  "type": "upload",
+  "created_at": "2026-02-10T19:09:55Z",
+  "bytes": 133979,
+  "asset_folder": "",
+  "display_name": "698b8283e7402b55e9f43d5d.pdf",
+  "url": "http://res.cloudinary.com/dbx6e8y7c/raw/upload/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "secure_url": "https://res.cloudinary.com/dbx6e8y7c/raw/upload/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "rate_limit_allowed": 500,
+  "rate_limit_reset_at": "2026-02-11T18:00:00.000Z",
+  "rate_limit_remaining": 497
+}

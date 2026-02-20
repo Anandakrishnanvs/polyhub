@@ -1,0 +1,22 @@
+Status: 401
+Headers: {
+  "date": "Wed, 11 Feb 2026 17:33:32 GMT",
+  "content-type": "application/pdf",
+  "content-length": "0",
+  "connection": "keep-alive",
+  "server": "cloudflare",
+  "cf-ray": "9cc59783ed7f3d4e-BOM",
+  "accept-ranges": "bytes",
+  "access-control-allow-origin": "*",
+  "cache-control": "private, no-transform, max-age=0, no-cache",
+  "content-disposition": "attachment; filename=\"698b8283e7402b55e9f43d5d.pdf\"",
+  "last-modified": "Wed, 11 Feb 2026 13:44:53 GMT",
+  "strict-transport-security": "max-age=604800",
+  "vary": "Accept-Encoding",
+  "pragma": "no-cache",
+  "access-control-expose-headers": "Content-Length,Content-Disposition,Server-Timing,X-Cld-Error,Vary",
+  "server-timing": "cld-cloudflare;dur=399;start=2026-02-11T17:33:32.155Z;desc=hit,rtt;dur=58",
+  "timing-allow-origin": "*",
+  "x-cld-error": "deny or ACL failure",
+  "x-request-id": "e40ea151209533d66fe378927d5b80c4"
+}

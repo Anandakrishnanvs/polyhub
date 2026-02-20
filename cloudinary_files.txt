@@ -1,0 +1,3 @@
+public_id: study_materials/698b8283e7402b55e9f43d5d.pdf
+secure_url: https://res.cloudinary.com/dbx6e8y7c/raw/upload/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf
+format: undefined

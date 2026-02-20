@@ -2,7 +2,7 @@ const { Router } = require("express");
 let express = require("express");
 let router = express.Router();
 const cloudinary = require("../config/cloudinary");
-const { uploadToCloudinary, getCloudinaryUrl } = require("../config/cloudinaryHelper");
+const { uploadToCloudinary } = require("../config/cloudinaryHelper");
 
 //db helpers
 let staffHelper = require("../helpers/staff_helpers");
@@ -71,6 +71,9 @@ router.post("/login", (req, res, next) => {
       req.session.admin = response.admin;
       res.redirect("/admin");
     }
+  }).catch((error) => {
+    console.error("Login error:", error);
+    res.redirect("/admin/login?error=login_failed");
   });
 });
 
@@ -93,7 +96,7 @@ router.get('/staffHome', async (req, res) => {
 })
 router.get("/logout", (req, res) => {
   req.session.admin = null;
-  req.secure.staff = null;
+  req.session.staff = null;
   res.redirect("/admin");
 });
 

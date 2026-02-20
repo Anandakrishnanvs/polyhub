@@ -1,6 +1,6 @@
 //This module is for the executing operations of staff colletion
 let db = require("../config/connection");
-var objectId = require("mongodb").ObjectID;
+var objectId = require("mongodb").ObjectId;
 const collections = require("../config/collections");
 
 module.exports = {

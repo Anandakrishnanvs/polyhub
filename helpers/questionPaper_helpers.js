@@ -1,5 +1,5 @@
 let db = require("../config/connection");
-var objectId = require("mongodb").ObjectID;
+var objectId = require("mongodb").ObjectId;
 const collections = require("../config/collections");
 
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
     let count = await db.get().collection(collections.STUDY_MATERIAL).count();
     return count;
   },
-  
+
   fetchAllQuestionPapers: () => {
     //get the data from the db and return
     return new Promise(async (resolve, reject) => {
@@ -96,7 +96,7 @@ module.exports = {
     //fetch the details of staff from a single department
     return new Promise(async (resolve, reject) => {
       console.log(department);
-      let satudyMateral  = await db
+      let satudyMateral = await db
         .get()
         .collection(collections.STUDY_MATERIAL)
         .find({ department: department })
@@ -108,10 +108,16 @@ module.exports = {
     //fetch the details of staff from a single department
     return new Promise(async (resolve, reject) => {
       console.log(subject);
-      let searchResult  = await db
+      // Use regex for case-insensitive partial matching
+      let searchResult = await db
         .get()
         .collection(collections.STUDY_MATERIAL)
-        .find({ subject: subject })
+        .find({
+          subject: {
+            $regex: subject,
+            $options: 'i' // case-insensitive
+          }
+        })
         .toArray();
       resolve(searchResult);
     });

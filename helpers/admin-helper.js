@@ -1,7 +1,7 @@
 var db = require("../config/connection");
 var collection = require("../config/collections");
 const bcrypt = require("bcrypt");
-var objectId = require("mongodb").ObjectID;
+var objectId = require("mongodb").ObjectId;
 
 module.exports = {
   findAdmin: () => {
@@ -25,8 +25,8 @@ module.exports = {
         }
         const user = await database
           .collection(collection.USER_COLLECTION)
-          .findOne({ email, password });
-        if (user) {
+          .findOne({ email });
+        if (user && user.password === password) {
           console.log("User found:", user);
           resolve(user);
         } else {

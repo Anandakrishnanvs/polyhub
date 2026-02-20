@@ -1,0 +1,1 @@
+https://api.cloudinary.com/v1_1/dbx6e8y7c/raw/download?timestamp=1770832527&public_id=study_materials%2F698b8283e7402b55e9f43d5d.pdf&format=pdf&signature=e3e7b94173df64bd53428b87a71d7e2c2b4c05e0&api_key=259993353318886

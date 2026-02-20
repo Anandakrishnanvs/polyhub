@@ -1,0 +1,32 @@
+{
+  "asset_id": "1c84ac010a95ca60c7e58a0401e72a77",
+  "public_id": "study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "version": 1770750595,
+  "resource_type": "raw",
+  "type": "authenticated",
+  "created_at": "2026-02-10T19:09:55Z",
+  "bytes": 133979,
+  "asset_folder": "",
+  "display_name": "698b8283e7402b55e9f43d5d.pdf",
+  "url": "http://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--zPQJTH8x--/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "secure_url": "https://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--zPQJTH8x--/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf",
+  "last_updated": {
+    "public_id_updated_at": "2026-02-11T18:27:55+00:00",
+    "updated_at": "2026-02-11T18:27:55+00:00"
+  },
+  "next_cursor": "6b8efcb96c913ec60f385a52f96cea94332ee63d0c0c7ce5de54fefa0817387b",
+  "derived": [
+    {
+      "transformation": "fl_attachment",
+      "transformation_signature": "cf29d814-aeca-30c4-9e46-e36fe56c9e6d",
+      "format": null,
+      "bytes": 133979,
+      "id": "fcca42c22abf41af337cac71c7d071bd",
+      "url": "http://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--U3LSOPNp--/fl_attachment/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf",
+      "secure_url": "https://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--U3LSOPNp--/fl_attachment/v1770750595/study_materials/698b8283e7402b55e9f43d5d.pdf"
+    }
+  ],
+  "rate_limit_allowed": 500,
+  "rate_limit_reset_at": "2026-02-11T19:00:00.000Z",
+  "rate_limit_remaining": 499
+}

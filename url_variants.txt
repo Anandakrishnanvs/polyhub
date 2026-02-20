@@ -1,0 +1,4 @@
+URL2 (signed standard) Status: 401 URL: https://res.cloudinary.com/dbx6e8y7c/raw/upload/s--zPQJTH8x--/v1/study_materials/698b8283e7402b55e9f43d5d.pdf?_a=BAMAOGce0
+URL3 (signed authenticated) Status: 404 URL: https://res.cloudinary.com/dbx6e8y7c/raw/authenticated/s--zPQJTH8x--/v1/study_materials/698b8283e7402b55e9f43d5d.pdf?_a=BAMAOGce0
+URL1 (private, no format) Status: 404 URL: https://api.cloudinary.com/v1_1/dbx6e8y7c/raw/download?timestamp=1770833848&public_id=study_materials%2F698b8283e7402b55e9f43d5d.pdf&signature=c3f029ede20c0eb3bf9a2e17babfdbcecbdbd845&api_key=259993353318886
+URL4 (private, with format) Status: 404 URL: https://api.cloudinary.com/v1_1/dbx6e8y7c/raw/download?timestamp=1770833848&public_id=study_materials%2F698b8283e7402b55e9f43d5d.pdf&format=pdf&signature=a7d3bc85790eeddc127e6899f426cb06e786e002&api_key=259993353318886

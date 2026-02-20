@@ -1,4 +1,6 @@
 var express = require("express");
+var https = require("https");
+var http = require("http");
 
 var router = express.Router();
 
@@ -105,6 +107,103 @@ router.post('/searchMaterial', async (req, res) => {
     res.redirect('/error/503')
   }
 })
+
+// Helper: proxy a PDF from Cloudinary to the browser.
+// Uses cloudinary.utils.private_download_url — the correct server-to-server download API.
+// Tries 'authenticated' type first (existing files), then 'upload' type (new files).
+function proxyDownload(res, folder, publicId, filename) {
+  const cloudinary = require('../config/cloudinary');
+
+  // Fetch URL following redirects, call cb(response) on success or errCb(err) on failure
+  function fetchWithRedirects(url, maxRedirects, cb, errCb) {
+    const parsedUrl = new URL(url);
+    const protocol = parsedUrl.protocol === 'https:' ? https : http;
+    protocol.get(url, (response) => {
+      const { statusCode, headers } = response;
+      if ([301, 302, 303, 307, 308].includes(statusCode) && headers.location) {
+        response.resume();
+        if (maxRedirects <= 0) { errCb(new Error('Too many redirects')); return; }
+        const nextUrl = headers.location.startsWith('http')
+          ? headers.location
+          : new URL(headers.location, url).toString();
+        fetchWithRedirects(nextUrl, maxRedirects - 1, cb, errCb);
+        return;
+      }
+      cb(response, statusCode);
+    }).on('error', errCb);
+  }
+
+  function streamFromUrl(url, onFail) {
+    fetchWithRedirects(url, 5, (cloudinaryRes, statusCode) => {
+      const contentType = cloudinaryRes.headers['content-type'] || '';
+      if (statusCode !== 200 || contentType.includes('text/html')) {
+        console.log(`Cloudinary: status=${statusCode} ct=${contentType} — trying alternate delivery type...`);
+        cloudinaryRes.resume();
+        onFail();
+        return;
+      }
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}.pdf"`);
+      if (cloudinaryRes.headers['content-length']) {
+        res.setHeader('Content-Length', cloudinaryRes.headers['content-length']);
+      }
+      cloudinaryRes.pipe(res);
+    }, (err) => {
+      console.error('Proxy network error:', err.message);
+      if (!res.headersSent) res.status(500).send('Download failed');
+    });
+  }
+
+  try {
+    const expiresAt = Math.floor(Date.now() / 1000) + 3600; // 1 hour
+
+    // Cloudinary may store the public_id WITH or WITHOUT the .pdf extension baked in,
+    // depending on how the file was uploaded. We try all combinations:
+    // 1. authenticated + id (without .pdf in public_id) — format appended by Cloudinary
+    // 2. authenticated + id.pdf (with .pdf already in public_id) — no extra format
+    // 3. upload + id (without .pdf)
+    // 4. upload + id.pdf (with .pdf)
+    const candidates = [
+      { publicId: `${folder}/${publicId}`, format: 'pdf', type: 'authenticated' },
+      { publicId: `${folder}/${publicId}.pdf`, format: '', type: 'authenticated' },
+      { publicId: `${folder}/${publicId}`, format: 'pdf', type: 'upload' },
+      { publicId: `${folder}/${publicId}.pdf`, format: '', type: 'upload' },
+    ];
+
+    function tryNext(index) {
+      if (index >= candidates.length) {
+        if (!res.headersSent) res.status(404).send('File not found on Cloudinary');
+        return;
+      }
+      const { publicId: pid, format, type } = candidates[index];
+      const url = cloudinary.utils.private_download_url(pid, format || undefined, {
+        resource_type: 'raw',
+        type,
+        expires_at: expiresAt
+      });
+      console.log(`Trying [${type}] public_id="${pid}" format="${format}"...`);
+      streamFromUrl(url, () => tryNext(index + 1));
+    }
+
+    tryNext(0);
+  } catch (error) {
+    console.error('Download setup error:', error);
+    if (!res.headersSent) res.status(500).send('Download failed');
+  }
+}
+
+// Download routes - proxy PDF bytes through the server to avoid cross-origin auth errors
+router.get("/docs/:id.pdf", (req, res) => {
+  proxyDownload(res, 'study_materials', req.params.id, 'study-material-' + req.params.id);
+});
+
+router.get("/questions/:id.pdf", (req, res) => {
+  proxyDownload(res, 'question_papers', req.params.id, 'question-paper-' + req.params.id);
+});
+
+router.get("/forms/:id.pdf", (req, res) => {
+  proxyDownload(res, 'forms', req.params.id, 'form-' + req.params.id);
+});
 
 router.get("/all-questions", async function (req, res, next) {
   try {

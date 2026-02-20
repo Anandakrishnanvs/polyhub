@@ -18,18 +18,32 @@
 
 <div class="container-xxl py-5">
     <div class="container">
+        {{#if searchResults}}
+        {{#if searchResults.length}}
         <div class="section-title text-center">
             <h5 class="text-primary text-uppercase">Results</h5>
-            <h1 class="mb-5">Found Items</h1>
+            <h1 class="mb-5">Found {{searchResults.length}} Item(s)</h1>
         </div>
+        {{else}}
+        <div class="section-title text-center">
+            <h5 class="text-primary text-uppercase">Search</h5>
+            <h1 class="mb-5">No Results Found</h1>
+        </div>
+        {{/if}}
+        {{else}}
+        <div class="section-title text-center">
+            <h5 class="text-primary text-uppercase">Search</h5>
+            <h1 class="mb-5">No Results Found</h1>
+        </div>
+        {{/if}}
 
         <div class="row g-4">
-            {{#if result}}
-            {{#each result}}
+            {{#if searchResults.length}}
+            {{#each searchResults}}
             <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="modern-card p-4 h-100 text-center">
                     <div class="mb-3">
-                        <i class="fas fa-search fa-3x text-primary"></i>
+                        <i class="fas fa-file-alt fa-3x text-primary"></i>
                     </div>
                     <h5 class="mb-2">{{this.subject}}</h5>
                     <p class="text-muted small mb-3">{{this.semester}} - {{this.department}}</p>
@@ -45,11 +59,19 @@
             </div>
             {{/each}}
             {{else}}
-            <div class="col-12 text-center">
-                <div class="alert alert-warning" role="alert">
-                    No results found for your search query. Please try different keywords.
+            <div class="col-12 text-center py-5">
+                <div class="mb-4">
+                    <i class="fas fa-search fa-5x text-muted"></i>
                 </div>
-                <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+                <div class="alert alert-info d-inline-block" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>No results found for your search query. Please try different
+                    keywords.
+                </div>
+                <div class="mt-4">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                </div>
             </div>
             {{/if}}
         </div>

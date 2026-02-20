@@ -42,13 +42,17 @@ app.use(
 );
 
 // Database connection middleware for Serverless
+// Skip DB check for download routes (they use Cloudinary, not MongoDB)
 app.use(async (req, res, next) => {
+  const isDownloadRoute = req.path.match(/\.(pdf)$/i);
+  if (isDownloadRoute) return next(); // downloads don't need DB
+
   if (!db.get()) {
     try {
       await db.connectAsync();
       next();
     } catch (err) {
-      console.error("Database connection failed:", err);
+      console.error("Database connection failed:", err.message);
       // Pass error to error handler
       next(createError(503));
     }
