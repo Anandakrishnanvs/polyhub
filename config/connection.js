@@ -6,8 +6,9 @@ const state = {
 module.exports.connect = function (done) {
   const dbname = "polyhub_db";
 
-  // MongoDB Atlas connection URL
-  const url = process.env.MONGODB_URI || `mongodb+srv://polyhub_admin:polyhub_123@cluster0.6azsrel.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+  // MongoDB Atlas connection URL — must be set in environment variables
+  const url = process.env.MONGODB_URI;
+  if (!url) throw new Error('MONGODB_URI environment variable is not set');
 
   mongoClient.connect(url, (err, client) => {
     if (err) {
@@ -24,7 +25,8 @@ module.exports.connect = function (done) {
 module.exports.connectAsync = async function () {
   if (state.db) return state.db;
   const dbname = "polyhub_db";
-  const url = process.env.MONGODB_URI || `mongodb+srv://polyhub_admin:polyhub_123@cluster0.6azsrel.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+  const url = process.env.MONGODB_URI;
+  if (!url) throw new Error('MONGODB_URI environment variable is not set');
 
   try {
     const client = await mongoClient.connect(url);
